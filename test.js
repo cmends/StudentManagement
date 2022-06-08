@@ -1,6 +1,16 @@
+// calculateGpa(newGpa) {
+//     this.#gpa = newGpa;
+//   }
+
 
 
 class Students {
+    __name;
+    __grade;
+    __gpa;
+    __courses;
+    __age;
+
     constructor(name, grade, gpa, courses=[], age) {
         this.__name = name;
         this.__grade = grade;
@@ -10,9 +20,9 @@ class Students {
     }
     setNames(studentName) {
         if (studentName === "") {
-            this.__name = studentName;
+           console.log("Name is required")
         } else {
-            console.log("Name is required")
+             this.__name = studentName;
         }
     }
     getNames() {
@@ -39,15 +49,18 @@ class Students {
         return this.__gpa
     }
     setCourses(studentCourses) {
-        if (studentCourses.length>0) {
-            this.__courses=studentCourses
+        if (studentCourses==="" || studentCourses<2) {
+           console.log("Are you serious?")
         } else {
-            console.log("Are you serious?")
+             this.__courses=studentCourses
         }
     }
     getCourses() {
         return this.__courses
     }
+    printCourses() {
+        console.log(`These are the ${this.__courses} I am taking.`)
+        }
     setAge(studentAge) {
         if (studentAge>18) {
             this.__age=studentAge
@@ -65,8 +78,6 @@ class Students {
 
 
 
-
-
 const studentA = new Students("Calvin", 12, 4.0, ["maths", "biology", "english", "physics"], 25)
 console.log(studentA)
 
@@ -78,3 +89,53 @@ console.log(studentC)
 
 const studentD = new Students("Edem", 11, 1.8, ["Agriculture", "Biology", "Chemistry", "Spanish"], 23)
 console.log(studentD)
+
+
+
+
+
+
+class HighSchoolers extends Students{
+    constructor(name, grade, gpa,__courses=[], age) {
+        super(name,grade,gpa,__courses=[],age)
+    }
+}
+
+
+let studentList = [];
+
+const student1 = new HighSchoolers("Bob", 12, 4.0, ["maths", "biology", "english", "physics"], 25);
+console.log(student1)
+const student2 = new HighSchoolers("Sam", 15, 3.2, ["maths", "biology", "english", "Agriculture"], 23);
+
+
+function createStudent(name, grade, gpa, courses, age) {
+    let newStudent = new Student(name, grade, gpa, courses, age)
+    console.log = (newStudent)
+    return newStudent
+}
+
+function enrollStudent(Student) {
+    studentList.push(Student)
+}
+function filterStudentsByName(studentName) {
+
+    return studentName == "Sam";
+}
+function filterStudentsByGrade(studentGrade) {
+    return studentGrade == 11;
+}
+function filterStudentsByAge(minAge,) {
+    return minAge == 18;
+}
+function filterStudentsByAge(maxAge,) {
+    return maxAge == 25;
+}   
+
+
+
+
+const student3 = new HighSchoolers();
+const student4 = new HighSchoolers();
+const student5  =["Bob","Sam","Calvin","Kwesi"]
+
