@@ -107,7 +107,7 @@ let studentList = [];
 const student1 = new HighSchoolers("Bob", 12, 4.0, ["maths", "biology", "english", "physics"], 25);
 console.log(student1)
 const student2 = new HighSchoolers("Sam", 15, 3.2, ["maths", "biology", "english", "Agriculture"], 23);
-
+console.log(student2)
 
 function createStudent(name, grade, gpa, courses, age) {
     let newStudent = new Student(name, grade, gpa, courses, age)
@@ -118,19 +118,18 @@ function createStudent(name, grade, gpa, courses, age) {
 function enrollStudent(Student) {
     studentList.push(Student)
 }
-function filterStudentsByName(studentName) {
-
-    return studentName == "Sam";
+function searchStudent(name) {
+    return studentList.filter((s) => s.getNames().includes(name));
+} 
+function filterStudentsByGrade(grade){
+    return studentList.filter((s) => s.getGrade() == grade);
 }
-function filterStudentsByGrade(studentGrade) {
-    return studentGrade == 11;
+function filterStudentsByMaxAge(maxAge){    
+    return studentList.filter((s) => s.getAge() < maxAge)
 }
-function filterStudentsByAge(minAge,) {
-    return minAge == 18;
+function filterStudentsByMinAge(minAge){
+    return studentList.filter((s) => s.getAge() > minAge)
 }
-function filterStudentsByAge(maxAge,) {
-    return maxAge == 25;
-}   
 
 
 
